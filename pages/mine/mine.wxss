@@ -1,0 +1,166 @@
+page {
+  background: #eee;
+}
+
+.myOrder,
+.myDesign,
+.btns {
+  margin: 15px 12px 0;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.userInfo {
+  height: 200px;
+  background: #eee;
+  position: relative;
+  color: #fff;
+  font-size: 15px;
+}
+.userInfo .bkgView {
+  height: 170px;
+  background: -webkit-linear-gradient(left, #ffe300 , #ff7919);
+}
+.userInfo .avatar {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  left: 12px;
+  top: 45px;
+  border-radius: 50%;
+}
+.userInfo .login {
+  position: absolute;
+  height: 50px;
+  left: 84px;
+  top: 50px;
+}
+.userInfo .login .privilege {
+  height: 15px;
+  width: 80px;
+  display: block;
+  margin-top: 5px;
+}
+.userInfo .unlogin {
+  position: absolute;
+  line-height: 20px;
+  left: 84px;
+  top: 65px;
+}
+.userInfo .setting {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 60px;
+  right: 12px;
+}
+.userInfo .account {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  border-radius: 5px;
+  background: #fff;
+  height: 60px;
+  display: flex;
+}
+.userInfo .item {
+  flex: 1;
+  text-align: center;
+}
+.userInfo .item .title {
+  color: #333;
+  line-height: 30px;
+  font-size: 12px;
+}
+.userInfo .item .value {
+  display: line-block;
+  color: #ff7919;
+  font-size: 18px;
+}
+.userInfo .item .unit {
+  color: #999;
+  font-size: 11px;
+  margin-left: 5px;
+}
+
+.myOrder,
+.myDesign {
+  height: 125px;
+}
+.myOrder .top,
+.myDesign .top {
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 40px;
+  border-bottom: solid 1rpx #f6f6f6;
+}
+.myOrder .bottom,
+.myDesign .bottom {
+  height: 85px;
+  display: flex;
+  position: relative;
+  padding: 15px 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+.myOrder .orderDetail {
+  flex: 1;
+  font-size: 12px;
+  color: #333;
+  position: relative;
+}
+.myOrder .orderDetail image {
+  height: 30px;
+  width: 30px;
+}
+.myOrder .orderDetail .number {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  width: 14px;
+  line-height: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ff7919;
+  color: #fff;
+  border: solid 2px #fff;
+}
+
+.myDesign .designDetail {
+  flex: 1;
+}
+.myDesign .designDetail:first-child {
+  border-right: solid 1rpx #f6f6f6;
+}
+.myDesign .designDetail .number {
+  font-size: 16px;
+  line-height: 25px;
+}
+.myDesign .designDetail .second {
+  font-size: 12px;
+  line-height: 20px;
+}
+.myDesign .designDetail .third {
+  font-size: 10px;
+  color: #999;
+  line-height: 20px;
+}
+
+.btns {
+  height: 160px;
+  margin-bottom: 20px;
+}
+.btns .btnDetail {
+  float: left;
+  width: 175rpx;
+  height: 80px;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+}
+.btns .btnDetail image {
+  width: 25px;
+  height: 25px;
+  margin: 13px 0 5px;
+}

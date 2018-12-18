@@ -1,0 +1,75 @@
+page {
+  background-color: #eee;
+}
+.cell {
+  height: 40px;
+  margin: 0 12px;
+  border-radius: 5px;
+  background-color: #fff;
+  position: relative;
+}
+.cell:nth-child(1),
+.cell:nth-child(5),
+.cell:nth-child(even) {
+  margin-top: 10px;
+}
+.cell:nth-child(1) {
+  height: 90px;
+}
+.cell:nth-child(2),
+.cell:nth-child(6) {
+  border-bottom: solid 1rpx #eee;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.cell:nth-child(3),
+.cell:nth-child(7) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.cell .left {
+  position: absolute;
+  left: 15px;
+  font-size: 14px;
+  color: #333;
+  line-height: 40px;
+}
+.cell:first-child .left {
+  line-height: 90px;
+}
+.cell .right {
+  position: absolute;
+  right: 30px;
+  font-size: 13px;
+  color: #999;
+  line-height: 40px;
+}
+.cell .arrow {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  right: 12px;
+  top: 15px;
+}
+.cell:first-child .arrow {
+  top: 40px;
+}
+.cell image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+  left: 12px;
+  right: 12px;
+  color: #fff;
+  background-color: #ff0000;
+  font-size: 15px;
+  border: none;
+}

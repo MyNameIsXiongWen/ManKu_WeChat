@@ -1,0 +1,76 @@
+<!--pages/first.wxml-->
+<view>
+  <view class='top'>
+    <view class='btn' bindtap='clickAddress'>
+      <label>{{address}}</label>
+      <image src='../../images/arrow_down.png'></image>
+    </view>
+    <view class='search'>
+      <icon type='search' size='14' color='#666'></icon>
+      <input placeholder='搜索商品或者样板间' disabled='true' bindtap='clickSearch'></input>
+    </view>
+    <view class='btn' bindtap='clickScan'>
+      <image src='../../images/scan.png'></image>
+    </view>
+  </view>
+  <swiper class='banner' indicator-dots='true' indicator-active-color='#ff7914' autoplay='true'         circular='true' interval='2000' duration='500' bindchange='swiperChange' display-multiple-items='1'>
+    <swiper-item wx:for="{{swiperlist}}" wx:key="index" data-index='{{index}}' bindtap='clickSwiper'>
+      <image src='{{dataInfo.ossUrl + item.coverImgSrc}}' mode='aspectFill'></image>
+    </swiper-item>
+  </swiper>
+  <view class='entrance'>
+    <view wx:for='{{entranceList}}' wx:key='index' class='item' data-index='{{index}}' bindtap='clickEntrance' style='background:{{item.color}}'>
+      <text class='en'>{{item.english}}</text>
+      <text class='cn'>{{item.chinese}}</text>
+    </view>
+  </view>
+  <view class='seckillTitle'>
+    <view class='rectangle'></view>
+    <view class='text'>限时抢购</view>
+    <view class='more'>更多></view>
+  </view>
+  <scroll-view class='seckill' scroll-x>
+    <view class='seckillItem' wx:for='{{seckillList}}' wx:key='index'>
+      <view class='timer'>
+        <view class='hour'>{{item.results[0]}}</view>
+        <view class='sep'>:</view>
+        <view class='minute'>{{item.results[1]}}</view>
+        <view class='sep'>:</view>
+        <view class='second'>{{item.results[2]}}</view>
+      </view>
+      <image src='{{dataInfo.ossUrl + item.coverImgSrc}}'></image>
+      <view style='font-size:13px'><text>{{item.seckillName}}</text></view>
+      <text style='font-size:13px;color:#ff7919'>¥ {{item.seckillPrice}}</text>
+      <text style='font-size:11px;text-decoration:line-through;color:#666'>¥ {{item.originalPrice}}</text>
+      <view class='seckillBtn'>
+        <view class='bkg' style='width:{{(item.stockTotal-item.stockSellTotal)/item.stockTotal*80}}px'></view>
+        <view class='count'>仅剩{{item.stockTotal - item.stockSellTotal}}件</view>
+        <view class='btn'>立即抢购</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='seckillTitle'>
+    <view class='rectangle'></view>
+    <view class='text'>热卖单品</view>
+    <view class='more'>更多></view>
+  </view>
+  <view class='goodsList'>
+    <view class='goods' wx:for='{{goodsList}}' wx:key='index' data-goodsid='{{item.id}}' bindtap='clickGoods'>
+      <image src='{{dataInfo.ossUrl + item.imgSrc}}' mode='aspectFill'></image>
+      <view style='font-size:14px'><text>{{item.name}}</text></view>
+      <text style='font-size:14px;color:#ff7919;height:20px'>¥ {{item.defaultSkuOriginalPrice}}</text>
+      <text style='font-size:11px;height:20px;text-decoration:line-through;color:#666'>¥ {{item.price}}</text>
+    </view>
+  </view>
+  <view hidden='{{!showAddress}}' class='address'>
+    <image src='../../images/selectaddress.png'></image>
+    ddd
+  </view>
+  <view wx:if='{{showActivity}}' class='shadow'></view>
+  <view wx:if='{{showActivity}}' class='activity'>
+    <view>
+      <image src='{{activityDic.coverImgSrc}}' class='content' mode='aspectFill' bindtap='clickActivityContent' data-dic='{{activityDic}}'></image>
+    </view>
+    <image src='../../images/activity.png' class='cancel' bindtap='clickCancel'></image>
+  </view>
+</view>

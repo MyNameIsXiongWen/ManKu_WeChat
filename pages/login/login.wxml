@@ -1,0 +1,14 @@
+<view>
+  <image class='logo' src='../../images/logo.png'></image>
+  <view class='content'>
+    <view class='phone'>
+      <image src='../../images/shoppingCartUnselected.png'></image>
+      <input placeholder='请输入手机号' type='number' placeholder-style='color:rgb(191, 191, 191)' value='{{phone}}' bindinput='inputPhone' maxlength='11'></input>
+    </view>
+    <view class='phone'>
+      <image src='../../images/shoppingCartSelected.png'></image>
+      <input placeholder='请输入验证码' type='number' placeholder-style='color:rgb(191, 191, 191)' value='{{code}}' bindinput='inputCode' maxlength='6'></input>
+    </view>
+    <view class='loginBtn' bindtap='clickLogin'>登 录</view>
+  </view>
+</view>

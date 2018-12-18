@@ -1,0 +1,255 @@
+/* pages/first.wxss */
+
+.top {
+  height: 35px;
+}
+.top .search {
+  width: 530rpx;
+  background-color: #efefef;
+  border-radius: 12.5px;
+  position: relative;
+  float: left;
+  height: 25px;
+}
+.top .search input {
+  font-size: 12px;
+  color: #7d7d7d;
+}
+.top .search icon {
+  position: absolute;
+  margin-left: 13px;
+  margin-top: 5px;
+}
+.top .search input {
+  margin-left: 35px;
+  height: 100%;
+}
+.top .btn {
+  height: 25px;
+  text-align: center;
+}
+.top .btn:first-child {
+  float: left;
+  width: 120rpx;
+}
+.top .btn:last-child {
+  float: right;
+  width: 100rpx;
+}
+.top .btn:first-child label {
+  font-size: 14px;
+  color: #7d7d7d;
+}
+.top .btn:first-child image {
+  width: 13px;
+  height: 7px;
+  margin-left: 3px;
+}
+.top .btn:last-child image {
+  width: 25px;
+  height: 25px;
+}
+
+.banner image {
+  height: 150px;
+  width: 100%;
+}
+
+.entrance {
+  height: 230rpx;
+}
+.entrance .item {
+  float: left;
+  width: 330rpx;
+  line-height: 40rpx;
+  height: 80rpx;
+  border-radius: 5px;
+  text-align: right;
+  font-size: 12px;
+  background-color: pink;
+  padding-right: 10px;
+  box-sizing: border-box;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+.entrance .item:nth-child(even) {
+  margin-right: 30rpx;
+}
+.entrance .item text {
+  color: white;
+  display: block;
+}
+
+.seckillTitle {
+  height: 20px;
+  margin: 10px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  position: relative;
+}
+.seckillTitle .rectangle {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 4px;
+  height: 10px;
+  background: #ff0055;
+}
+.seckillTitle .text {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  line-height: 20px;
+}
+.seckillTitle .more {
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 20px;
+  font-size: 10px;
+  font-weight: 400;
+}
+.seckill {
+  height: 255px;
+  width: 100%;
+  white-space: nowrap;
+}
+.seckill .seckillItem {
+  display: inline-block;
+  height: 235px;
+  width: 160px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #fff;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+.seckill .seckillItem:last-child {
+  margin-right: 15px;
+}
+.seckill .seckillItem .timer {
+  margin-top: 10px;
+  margin-left: 15px;
+  font-size: 12px;
+}
+.seckill .seckillItem .timer .hour,
+.seckill .seckillItem .timer .minute,
+.seckill .seckillItem .timer .second {
+  background-color: #ff7919;
+  display: inline-block;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  color: #fff;
+  padding: 0 3px;
+}
+.seckill .seckillItem .timer .sep {
+  display: inline-block;
+  margin: 0 5px;
+}
+.seckill .seckillItem image {
+  margin-left: 15px;
+  margin-top: 10px;
+  width: 130px;
+  height: 110px;
+}
+.seckill .seckillItem text {
+  margin-left: 12px;
+}
+.seckill .seckillItem .seckillBtn {
+  font-size: 10px;
+  color: #ff7919;
+  border: solid 1px #ff7919;
+  border-radius: 5px;
+  line-height: 20px;
+  position: relative;
+  margin: 0 12px;
+}
+.seckill .seckillItem .seckillBtn .bkg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #ff7919;
+  opacity: 0.1;
+  height: 20px;
+}
+.seckill .seckillItem .seckillBtn .count {
+  width: 80px;
+  text-align: center;
+}
+.seckill .seckillItem .seckillBtn .btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0;
+  font-size: 10px;
+  color: #fff;
+  width: 55px;
+  height: 100%;
+  background: #ff7919;
+  text-align: center;
+}
+
+.goodsList {
+  margin-top: -20rpx;
+}
+.goodsList .goods {
+  float: left;
+  height: 470rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.goodsList .goods image {
+  width: 330rpx;
+  height: 330rpx;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.goodsList .goods text {
+  margin-left: 10px;
+}
+
+.address {
+  position: fixed;
+  left: 15px;
+  top: 35px;
+  width: 160px;
+  height: 141px;
+}
+.address image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.activity {
+  position: fixed;
+  left: 135rpx;
+  top: 99rpx;
+  width: 480rpx;
+  height: 880rpx;
+}
+.activity .content {
+  width: 100%;
+  height: 720rpx;
+}
+.activity .cancel {
+  width: 60rpx;
+  height: 160rpx;
+  position: absolute;
+  bottom: 0;
+  left: 210rpx;
+}
+
+.shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 667px;
+  background: rgba(0, 0, 0, 0.3);
+}

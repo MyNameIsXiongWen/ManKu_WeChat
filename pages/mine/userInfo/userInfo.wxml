@@ -1,0 +1,9 @@
+<view>
+  <view wx:for='{{dataList}}' wx:key='index' class='cell' data-tag='{{index}}' bindtap='clickCell'>
+    <view class='left'>{{item[0]}}</view>
+    <image wx:if='{{index == 0}}' src='{{userInfo.profilePhotoImgSrc}}'></image>
+    <view wx:else class='right'>{{item[1]}}</view>
+    <image src='../../../images/arrow_right.png' class='arrow'></image>
+  </view>
+  <button class='logout' bindtap='clickLogout'>退出登录</button>
+</view>

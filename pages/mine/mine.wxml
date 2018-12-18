@@ -1,0 +1,60 @@
+<view>
+  <view class='userInfo'>
+    <view class='bkgView'></view>
+    <image class='avatar' src='{{userInfo.profilePhotoImgSrc}}' bindtap='clickAvatar'></image>
+    <view wx:if='{{token}}' class='login'>
+      <label>{{userInfo.nickName}}</label>
+      <image class='privilege' src='{{privilege}}'></image>
+    </view>
+    <view wx:else class='unlogin' bindtap='clickLogin'>未登录</view>
+    <image class='setting' src='../../images/setting.png' bindtap='clickSetting'></image>
+    <view class='account'>
+      <view class='item'>
+        <view class='title'>余额</view>
+        <label class='value'>{{userInfo.accountBalance}}</label>
+        <label class='unit'>元</label>
+      </view>
+      <view class='item'>
+        <view class='title'>红包</view>
+        <label class='value'>{{userInfo.redEnvelopesCount}}</label>
+        <label class='unit'>个</label>
+      </view>
+      <view class='item'>
+        <view class='title'>代金券</view>
+        <label class='value'>{{userInfo.cashCouponCount}}</label>
+        <label class='unit'>个</label>
+      </view>
+    </view>
+  </view>
+  <view class='myOrder'>
+    <view class='top'>我的订单</view>
+    <view class='bottom'>
+      <view wx:for='{{orderList}}' wx:key='index' class='orderDetail' data-tag='{{index}}' bindtap='clickOrder'>
+      <image src='{{item.img}}'></image>
+      <view wx:if='{{orderStatusNumList[index]>0}}' class='number'>{{orderStatusNumList[index]}}</view>
+      <view>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='myDesign'>
+    <view class='top'>我的设计</view>
+    <view class='bottom'>
+      <view class='designDetail' bindtap='clickMyHousetype'>
+        <view class='number'>{{userInfo.houseTypeCount}}</view>
+        <view class='second'>我的户型</view>
+        <view class='third'>默认户型：{{userInfo.defaultHouseType}}</view>
+      </view>
+      <view class='designDetail' bindtap='clickMyScheme'>
+        <view class='number'>{{userInfo.userSchemeCount}}</view>
+        <view class='second'>我的方案</view>
+        <view class='third'>最后修改：{{userInfo.schemeUpdateTime}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='btns'>
+    <view wx:for='{{btnList}}' wx:key='index' class='btnDetail' data-tag='{{index}}' bindtap='clickBtn'>
+      <image src='{{item.img}}'></image>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+</view>

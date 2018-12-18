@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/search/search",
+    "pages/mine/userInfo/userInfo",
+    "pages/login/login",
+    "pages/mine/mine",
+    "pages/goods/goodsDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/homeUnselected.png",
+        "selectedIconPath": "images/homeSelected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "商品",
+        "iconPath": "images/goodsListUnselected.png",
+        "selectedIconPath": "images/goodsListSelected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mineUnselected.png",
+        "selectedIconPath": "images/mineSelected.png"
+      }
+    ],
+    "color": "#000000",
+    "selectedColor": "#ff7919",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff"
+  },
+  "networkTimeout": {
+    "request": 30000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  }
+}
