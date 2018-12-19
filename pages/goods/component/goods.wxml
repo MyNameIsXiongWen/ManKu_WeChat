@@ -1,0 +1,6 @@
+<view class='goods' bindtap='clickGoods'>
+  <image class='goodsImg' src='{{globalData.ossUrl + goods.imgSrc}}' mode='aspectFill'></image>
+  <view class='goodsName' style='font-size:14px'>{{goods.name}}</view>
+  <text class='goodsPrice' style='font-size:14px;color:#ff7919;height:20px'>¥ {{goods.defaultSkuOriginalPrice}}</text>
+  <text class='goodsPrice' style='font-size:11px;height:20px;text-decoration:line-through;color:#666'>¥ {{goods.price}}</text>
+</view>

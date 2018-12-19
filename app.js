@@ -35,10 +35,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null, 
-    // requestUrl: 'https://dev-api.mankuhome.com/v1/',
-    // ossUrl: 'https://dev-img.mankuhome.com/',
+    userInfo: null,
     requestUrl: 'https://api.mankuhome.com/v1/',
     ossUrl: 'https://img.mankuhome.com/',
+    // requestUrl: 'https://dev-api.mankuhome.com/v1/',
+    // ossUrl: 'https://dev-img.mankuhome.com/',
   }
 })

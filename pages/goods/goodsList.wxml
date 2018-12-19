@@ -1,0 +1,16 @@
+<view class='goodsFirstCategory'>
+  <view class="goodsFirstCategoryItem {{ currentFirstTag == index ? 'active' : '' }}" 
+  wx:for='{{firstCategory}}' wx:key='index' bindtap='clickFirstCategory' data-tag='{{index}}'>
+    {{item}}
+  </view>
+</view>
+<scroll-view class='goodsSecondCategory' scroll-x>
+  <view class="goodsSecondCategoryItem {{ currentSecondTag == index ? 'active' : '' }}" 
+  wx:for='{{secondCategory}}' wx:key='index' bindtap='clickSecondCategory' data-tag='{{index}}'>
+    <image class='itemImg' src='{{globalData.ossUrl + item.coverImgSrc}}'></image>
+    <text>{{item.spaceName}}</text>
+  </view>
+</scroll-view>
+<view class='goodsList'>
+  <goods wx:for='{{goodsList}}' wx:key='index' goods='{{item}}'></goods>
+</view>

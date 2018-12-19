@@ -1,4 +1,3 @@
-// pages/first.js
 const app = getApp()
 const ajax = require('../../utils/network.js')
 const getTime = require('../../utils/getTime.js')
@@ -100,12 +99,6 @@ Page({
     })
     console.log(e.currentTarget.dataset.dic)
   },
-  //点击商品
-  clickGoods(e) {2
-    wx.navigateTo({
-      url: '../goods/goodsDetail?goodsId=' + e.currentTarget.dataset.goodsid,
-    })
-  },
   //请求banner页
   requestSlideShow() {
     var that = this
@@ -148,6 +141,7 @@ Page({
       that.setData({
         goodsList: that.data.pageNum == 1 ? res.data.data : that.data.goodsList.concat(res.data.data)
       })
+      wx.stopPullDownRefresh()
     }, function (res) {
       wx.showToast({
         title: '加载失败',
@@ -168,9 +162,6 @@ Page({
           })
         })
       },1000)
-      // this.setData({
-      //   seckillList: res.data.data
-      // })
     }, function (res) {
       wx.showToast({
         title: '加载失败',

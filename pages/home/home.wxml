@@ -55,19 +55,14 @@
     <view class='more'>更多></view>
   </view>
   <view class='goodsList'>
-    <view class='goods' wx:for='{{goodsList}}' wx:key='index' data-goodsid='{{item.id}}' bindtap='clickGoods'>
-      <image src='{{dataInfo.ossUrl + item.imgSrc}}' mode='aspectFill'></image>
-      <view style='font-size:14px'><text>{{item.name}}</text></view>
-      <text style='font-size:14px;color:#ff7919;height:20px'>¥ {{item.defaultSkuOriginalPrice}}</text>
-      <text style='font-size:11px;height:20px;text-decoration:line-through;color:#666'>¥ {{item.price}}</text>
-    </view>
+    <goods wx:for='{{goodsList}}' wx:key='index' goods='{{item}}'></goods>
   </view>
   <view hidden='{{!showAddress}}' class='address'>
     <image src='../../images/selectaddress.png'></image>
     ddd
   </view>
-  <view wx:if='{{showActivity}}' class='shadow'></view>
-  <view wx:if='{{showActivity}}' class='activity'>
+  <view wx:if='{{!showActivity}}' class='shadow'></view>
+  <view wx:if='{{!showActivity}}' class='activity'>
     <view>
       <image src='{{activityDic.coverImgSrc}}' class='content' mode='aspectFill' bindtap='clickActivityContent' data-dic='{{activityDic}}'></image>
     </view>

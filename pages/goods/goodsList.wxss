@@ -1,0 +1,46 @@
+/* pages/goods/goodsList/goodsList.wxss */
+.goodsFirstCategory  {
+  height: 40px;
+  border-bottom: solid 1px #f6f6f6;
+  padding: 0 30rpx;
+  background: #fff;
+}
+.goodsFirstCategory .goodsFirstCategoryItem {
+  float: left;
+  line-height: 40px;
+  font-size: 14px;
+  color: #999;
+  margin-right: 160rpx;
+}
+.goodsFirstCategory .active {
+  color: #333;
+}
+.goodsFirstCategory .goodsFirstCategoryItem:last-child {
+  margin-right: 0;
+}
+
+.goodsSecondCategory {
+  height: 95px;
+  width: 100%;
+  padding: 0 10rpx;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.goodsSecondCategory .goodsSecondCategoryItem {
+  display: inline-block;
+  width: 80px;
+  height: 95px;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+}
+.goodsSecondCategory .goodsSecondCategoryItem .itemImg {
+  display: block;
+  margin: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.goodsSecondCategory .active {
+  color: #ff7919;
+}

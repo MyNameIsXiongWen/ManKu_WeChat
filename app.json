@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/index/index",
+    "pages/goods/goodsList",
+    "pages/goods/component/goods",
+    "pages/goods/goodsDetail/goodsDetail",
     "pages/search/search",
-    "pages/mine/userInfo/userInfo",
     "pages/login/login",
     "pages/mine/mine",
-    "pages/goods/goodsDetail"
+    "pages/mine/userInfo/userInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +24,7 @@
         "selectedIconPath": "images/homeSelected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/goods/goodsList",
         "text": "商品",
         "iconPath": "images/goodsListUnselected.png",
         "selectedIconPath": "images/goodsListSelected.png"

@@ -194,24 +194,6 @@
 .goodsList {
   margin-top: -20rpx;
 }
-.goodsList .goods {
-  float: left;
-  height: 470rpx;
-  margin-left: 30rpx;
-  margin-top: 30rpx;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.goodsList .goods image {
-  width: 330rpx;
-  height: 330rpx;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-.goodsList .goods text {
-  margin-left: 10px;
-}
 
 .address {
   position: fixed;

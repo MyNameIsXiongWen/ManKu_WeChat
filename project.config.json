@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wxa14471e224fba4ff",
-	"projectname": "Just%20Demo",
+	"projectname": "%E7%AC%AC%E4%B8%80%E5%BA%8F",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -34,13 +34,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "商品详情",
 					"pathName": "pages/goods/goodsDetail",
 					"query": "goodsId=75"
+				},
+				{
+					"id": -1,
+					"name": "商品列表",
+					"pathName": "pages/goods/goodsList"
 				}
 			]
 		}

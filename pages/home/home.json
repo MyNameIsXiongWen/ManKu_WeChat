@@ -2,5 +2,8 @@
   "navigationBarTitleText": "首页",
   "backgroundTextStyle": "dark",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": 40
+  "onReachBottomDistance": 40,
+  "usingComponents": {
+    "goods": "../goods/component/goods"
+  }
 }

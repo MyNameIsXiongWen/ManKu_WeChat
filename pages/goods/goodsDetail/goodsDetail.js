@@ -1,5 +1,5 @@
 const app = getApp()
-const ajax = require('../../utils/network.js')
+const ajax = require('../../../utils/network.js')
 
 Page({
   data: {
