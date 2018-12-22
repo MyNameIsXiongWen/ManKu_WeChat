@@ -99,6 +99,11 @@ Page({
     })
     console.log(e.currentTarget.dataset.dic)
   },
+  clickSeckill(e) {
+    wx.navigateTo({
+      url: '../goods/goodsDetail/goodsDetail?goodsId=' + this.data.seckillList[e.currentTarget.dataset.tag].id + '&detailType=1',
+    })
+  },
   //请求banner页
   requestSlideShow() {
     var that = this

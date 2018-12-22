@@ -1,9 +1,12 @@
+button::after {
+  border: none;
+}
 .nav {
   top: 0;
   left: 0;
   position: fixed;
   box-shadow: 0 5px 10px rgba(191, 191, 191, 0.1);
-  height: 40px;
+  height: 80rpx;
   width: 100%;
   padding: 0 215rpx;
   box-sizing: border-box;
@@ -15,16 +18,25 @@
 }
 .nav .navBtn {
   float: left;
-  width: 40px;
-  line-height: 40px;
-  margin-right: 20px;
+  width: 80rpx;
+  line-height: 80rpx;
+  margin-right: 40rpx;
   text-align: center;
 }
 .nav .navBtn:last-child {
   margin: 0;
 }
+.nav .active {
+  color: #333;
+}
+
+.goodsDetail {
+  height: 1026rpx;
+  width: 750rpx;
+  margin-top: 80rpx;
+  margin-bottom: 100rpx;
+}
 .swiper {
-  margin-top: 40px;
   height: 250px;
 }
 .swiper image {
@@ -52,7 +64,7 @@
   top: 10px;
 }
 
-.marketing {
+.discount {
   border-top: solid 10px #f5f5f5;
   padding: 10px 12px;
   box-sizing: border-box;
@@ -76,4 +88,168 @@
 }
 .images image {
   width: 100%;
+}
+
+#recommend {
+  width: 100%;
+  height: 300px;
+  background: pink;
+}
+
+.bottomView {
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+}
+.bottomView .smallBtn {
+  width: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #fff;
+}
+.bottomView .smallBtn image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.bottomView .bigBtn {
+  width: 200rpx;
+  height: 100rpx;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 200;
+  background: -webkit-linear-gradient(left, #ffe300 , #ff7919);
+}
+.bottomView .bigBtn text {
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottomView .last {
+  width: 250rpx;
+  background: #ff7919;
+}
+.bottomView .onlyOneBigBtn {
+  width: 450rpx;
+  background:-webkit-linear-gradient(left, #ffe300 , #ff7919);
+}
+.bottomView .ineffective {
+  background: #bfbfbf !important; 
+}
+
+.shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+.specView {
+  position: fixed;
+  top: 1206rpx;
+  left: 0;
+  width: 100%;
+  height: 900rpx;
+  background: #fff;
+  opacity: 0;
+}
+.specView .specGoodsInfo {
+  position: relative;
+  height: 200rpx;
+}
+.specView .specGoodsInfo .goodsImg {
+  position: absolute;
+  left: 30rpx;
+  top: -40rpx;
+  width: 200rpx;
+  height: 200rpx;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.specView .specGoodsInfo .goodsName {
+  position: absolute;
+  font-size: 32rpx;
+  color: #323232;
+  left: 260rpx;
+  top: 40rpx;
+}
+.specView .specGoodsInfo .goodsPrice {
+  position: absolute;
+  font-size: 32rpx;
+  color: #ff7919;
+  left: 260rpx;
+  bottom: 40rpx;
+}
+.specView .specGoodsSku {
+  width: 100%;
+  height: 700rpx;
+}
+.specView .skuKind {
+  color: #323232;
+  font-size: 30rpx;
+  height: 50rpx;
+  padding: 10rpx 30rpx;
+  border-bottom: solid 1px #f6f6f6;
+}
+.specView .skuView {
+  padding: 20rpx 0 20rpx 20rpx;
+}
+.specView .skuView .skuName {
+  display: inline-block;
+  line-height: 60rpx;
+  padding: 10rpx 20rpx;
+  color: #7d7d7d;
+  border: solid 1px #7d7d7d;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 200;
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+} 
+.specView .skuView .active {
+  color: #ff7919;
+  border: solid 1px #ff7919;
+}
+.specView .specGoodsCount {
+  position: relative;
+  color: #323232;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  padding: 20rpx 30rpx;
+  border-top: solid 1px #f6f6f6;
+  display: flex;
+  justify-content: space-between;
+}
+.specView .specGoodsCount .operation {
+  height: 60rpx;
+  width: 260rpx;
+  border: solid 1px #808080;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.specView .specGoodsCount .operation .minus,
+.specView .specGoodsCount .operation .plus {
+  width: 80rpx;
+  text-align: center;
+}
+.specView .specGoodsCount .operation input {
+  height: 60rpx;
+  width: 100rpx;
+  text-align: center;
+  border-left: solid 1px #808080;
+  border-right: solid 1px #808080;
+}
+.discountView {
+  position: fixed;
+  top: 1206rpx;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  opacity: 0;
 }

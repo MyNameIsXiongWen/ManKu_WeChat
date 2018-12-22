@@ -1,30 +1,81 @@
-<view>
-  <view class='nav'>
-    <view class='navBtn' wx:for='{{navData}}' wx:key='index' bindtap='clickNav' data-tag='{{index}}'>
-      {{item}}
+<view class='nav'>
+  <view class="navBtn {{currentIndex == index ? 'active' : ''}}" wx:for='{{navData}}' wx:key='index' bindtap='clickNav' data-tag='{{index}}'>
+    {{item}}
+  </view>
+</view>
+<scroll-view class='goodsDetail' scroll-y scroll-into-view = '{{toView}}' scroll-with-animation enable-back-to-top bindscroll='scrollFunc'>
+  <view id='goods'>
+    <swiper class='swiper' indicator-dots='true' indicator-active-color='#ff7914' autoplay='true'         circular='true' interval='2000' duration='500' bindchange='swiperChange'>
+      <swiper-item wx:for="{{goodsDetail.itemSpuImgSrcs}}" wx:key="index" data-index='{{index}}' bindtap='clickSwiper'>
+        <image src='{{globalData.ossUrl + item.imgSrc}}' mode='aspectFill'></image>
+      </swiper-item>
+    </swiper>
+    <view class='baseInfo'>
+      <view style='font-size:14px'><text>{{goodsDetail.name}}</text></view>
+      <text style='font-size:14px;color:#ff7919;height:20px'>¥ {{goodsDetail.defaultItemSku.currentPrice}}</text>
+      <text style='font-size:11px;height:20px;text-decoration:line-through;color:#666'>¥ {{goodsDetail.defaultItemSku.originalPrice}}</text>
+    </view>
+    <view class='sku' bindtap='clickSpecView'>
+      <label>已选择：{{goodsDetail.defaultItemSku.itemSkuAttrNames}}</label>
+      <label>x{{goodsDetail.defaultItemSku.buyNum}}</label>
+    </view>
+    <view class='discount' bindtap='clickDiscountView'>
+      优惠：{{discount[discount.length-1][0]}}
+    </view>
+    <view class='goodsInfo'>
+      <view class='goodsInfoCell' wx:for='{{goodsInfoList}}' wx:key='index'>{{item}}</view>
     </view>
   </view>
-  <swiper class='swiper' indicator-dots='true' indicator-active-color='#ff7914' autoplay='true'         circular='true' interval='2000' duration='500' bindchange='swiperChange'>
-    <swiper-item wx:for="{{goodsDetail.itemSpuImgSrcs}}" wx:key="index" data-index='{{index}}' bindtap='clickSwiper'>
-      <image src='{{globalData.ossUrl + item.imgSrc}}' mode='aspectFill'></image>
-    </swiper-item>
-  </swiper>
-  <view class='baseInfo'>
-    <view style='font-size:14px'><text>{{goodsDetail.name}}</text></view>
-    <text style='font-size:14px;color:#ff7919;height:20px'>¥ {{goodsDetail.defaultItemSku.currentPrice}}</text>
-    <text style='font-size:11px;height:20px;text-decoration:line-through;color:#666'>¥ {{goodsDetail.defaultItemSku.originalPrice}}</text>
+  <view id='detail'>
+    <view class='images'>
+      <image wx:for='{{imagesList}}' wx:key='index' src='{{item}}' mode='widthFix'></image>
+    </view>
   </view>
-  <view class='sku'>
-    <label>已选择：{{goodsDetail.defaultItemSku.itemSkuAttrNames}}</label>
-    <label>x{{buyNum}}</label>
+  <view id='recommend'>
+  
   </view>
-  <view class='marketing'>
-    优惠：{{discount[0]}}
+</scroll-view>
+<view class='bottomView'>
+  <view class='smallBtn'>
+    <image src='../../../images/goods_service.png' mode='aspectFill'></image>
   </view>
-  <view class='goodsInfo'>
-    <view class='goodsInfoCell' wx:for='{{goodsInfoList}}' wx:key='index'>{{item}}</view>
+  <view class='smallBtn'>
+    <button open-type='share' style='height:100rpx;padding:0;border-radius:0;background-color:transparent'><image src='../../../images/goods_share.png' mode='aspectFill'></image></button>
   </view>
-  <view class='images'>
-    <image wx:for='{{imagesList}}' wx:key='index' src='{{item}}' mode='widthFix'></image>
+  <view class='smallBtn'>
+    <image src="{{goodsDetail.favorite ? '../../../images/goods_collected.png' : '../../../images/goods_uncollected.png'}}" mode='aspectFill'></image>
   </view>
+  <view class="bigBtn {{detailType == 1 ? 'onlyOneBigBtn' : ''}} {{goodsDetail.ineffective ? 'ineffective' : ''}}" bindtap='clickBuy'><text>{{buyBtnTitle}}</text></view>
+  <view class="bigBtn last {{goodsDetail.ineffective ? 'ineffective' : ''}}" wx:if='{{detailType != 1}}' bindtap='clickShoppingCart'><text>{{cartBtnTitle}}</text></view>
+</view>
+<view hidden='{{hideShadowView}}' class='shadow' style='height:{{globalData.windowHeight}}px' bindtap='clickShadow'></view>
+<view class='specView' animation='{{animationDataSpec}}'>
+  <view class='specGoodsInfo'>
+    <image class='goodsImg' src='{{globalData.ossUrl + goodsDetail.defaultItemSku.itemSkuImgs[0].imgSrc}}'></image>
+    <view class='goodsName'>{{goodsDetail.name + '-' + goodsDetail.defaultItemSku.itemSkuCode}}</view>
+    <view class='goodsPrice'>¥{{goodsDetail.defaultItemSku.currentPrice}}</view>
+  </view>
+  <scroll-view scroll-y class='specGoodsSku'>
+    <view class='specSku' wx:for='{{goodsDetail.itemSkuAttrs}}' wx:key='index'>
+        <view class='skuKind'>{{item.attrName}}</view>
+        <view class='skuView'>
+          <view class="skuName {{goodsDetail.defaultItemSku.skuAttrIdArray[index] == skuModel.id ? 'active' : ' '}} "
+            wx:for='{{item.children}}' wx:key='row' wx:for-index='row' wx:for-item='skuModel' 
+            data-indexpath="{{[index, row]}}" bindtap='clickSpecSku'>
+            {{skuModel.attrName}}
+          </view>
+        </view>
+      </view>
+    <view class='specGoodsCount'>
+      <view>数量</view>
+      <view class='operation'>
+        <view class='minus' bindtap='minusGoodsCount'>-</view>
+        <input type='number' value='{{goodsDetail.defaultItemSku.buyNum}}' bindinput='inputBuyNum'></input>
+        <view class='plus' bindtap='plusGoodsCount'>+</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class='discountView' animation='{{animationDataDiscount}}' style='height:{{discount.length*80+140}}px'>
+  {{discount[discount.length-1][1]}}
 </view>

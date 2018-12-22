@@ -6,7 +6,12 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    wx.getSystemInfo({
+      success: (res)=> {
+        this.globalData.windowHeight = res.windowHeight
+        this.globalData.screenWidth = res.screenWidth
+      },
+    })
     // 登录
     wx.login({
       success: res => {
@@ -36,6 +41,8 @@ App({
   },
   globalData: {
     userInfo: null,
+    windowHeight: 0,
+    screenWidth: 0,
     requestUrl: 'https://api.mankuhome.com/v1/',
     ossUrl: 'https://img.mankuhome.com/',
     // requestUrl: 'https://dev-api.mankuhome.com/v1/',

@@ -30,7 +30,7 @@
     <view class='more'>更多></view>
   </view>
   <scroll-view class='seckill' scroll-x>
-    <view class='seckillItem' wx:for='{{seckillList}}' wx:key='index'>
+    <view class='seckillItem' wx:for='{{seckillList}}' wx:key='index' data-tag='{{index}}' bindtap='clickSeckill'>
       <view class='timer'>
         <view class='hour'>{{item.results[0]}}</view>
         <view class='sep'>:</view>
