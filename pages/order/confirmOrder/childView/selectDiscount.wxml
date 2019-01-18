@@ -1,0 +1,11 @@
+<view class='discountinfo' wx:for='{{discountArray}}' wx:key='index' bindtap='selectDiscount' data-info='{{item}}'>
+  <view>
+    {{item.discountName ? '全场'+item.discountValue*10 + '折' : '特权卡'+item.productDiscount/10 + '折（可用额度' + item.money + '）'}}
+  </view>
+  <view>
+    1.爆品不参与活动
+  </view>
+  <view>
+    2.{{item.desc}}
+  </view>
+</view>

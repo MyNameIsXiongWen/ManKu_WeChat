@@ -14,7 +14,7 @@ Component({
     //点击商品
     clickGoods() {
       wx.navigateTo({
-        url: '../goods/goodsDetail/goodsDetail?goodsId=' + this.properties.goods.id,
+        url: '../goods/goodsDetail/goodsDetail?goodsId=' + this.properties.goods.id + '&detailType=0',
       })
     },
   }

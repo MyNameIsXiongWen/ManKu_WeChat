@@ -1,0 +1,17 @@
+/* pages/cart/component/roomTitle.wxss */
+.itemcart .roomtitle {
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  border-bottom: 5px solid #f5f5f5;
+}
+.imageview {
+  width: 40px;
+  height: 40px;
+}
+.imageview image {
+  width: 14px;
+  height: 14px;
+  margin: 13px;
+}

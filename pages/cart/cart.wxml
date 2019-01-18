@@ -1,0 +1,13 @@
+<view class='nav'>
+  <view class="navitem {{currentIndex == index ? 'active' : ''}}" wx:for="{{['成品家具', '定制家具', '配套家具']}}" wx:key='index' bindtap='clickNav' data-index='{{index}}'>
+    {{item}}
+  </view>
+</view>
+<view class='cartlist'>
+  <itemcart itemcart='{{firstItemCarts}}'></itemcart>
+  <schemecart wx:for='{{shoppingCart.schemeCarts}}' wx:key='index' schemecart='{{item}}'>
+  </schemecart>
+</view>
+<view class='accountview'>
+  <view class='accountbtn'>结算</view>
+</view>

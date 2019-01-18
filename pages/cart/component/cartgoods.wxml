@@ -1,0 +1,20 @@
+<view class='goods' bindtap='clickGoods'>
+  <view class='goodsimgview'>
+    <view class='imageview' catchtap='switchGoodsSelected'>
+      <image src="{{goods.selected ? '../../../images/circle_selected.png' : '../../../images/circle_unselected.png'}}"></image>
+    </view>
+  </view>
+  <image class='goodsimg' src='{{globalData.ossUrl + goods.imgSrc}}'></image>
+  <view class='goodscontent'>
+    <view style='font-size:14px'>{{goods.itemSpuName}}</view>
+    <view style='color:#666;font-size:11px;margin-top:10px'>{{goods.itemSkuAttrNames}}</view>
+    <view class='thirdline'>
+      <view class='goodsprice'>¥ {{goods.currentPrice}}</view>
+      <view class='countview'>
+        <view catchtap='minusItemNum'>-</view>
+        <view class='center'><input value='{{goods.itemNum}}'></input></view>
+        <view catchtap='plusItemNum'>+</view>
+      </view>
+    </view>
+  </view>
+</view>

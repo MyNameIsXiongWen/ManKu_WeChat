@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "itemcart": "./component/itemCart",
+    "schemecart": "./component/schemeCart"
+  }
+}

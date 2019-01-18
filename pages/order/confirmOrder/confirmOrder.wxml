@@ -1,0 +1,77 @@
+<view class='orderlist'>
+  <view class='leftright address' bindtap='selectAddress'>
+    <view>
+      <view>收货人：{{addressModel.receiveName + ' ' + addressModel.phoneNumber}}</view>
+      <view>收货地址：{{addressModel.fullAddress}}</view>
+    </view>
+    <view style='line-height:80px'>></view>
+  </view>
+  <view class='goods'>
+    <view class='leftright goodsTitle'>
+      <view>订单商品</view>
+      <view>共 {{imageArray.length}} 件<text> ></text></view>
+    </view>
+    <scroll-view class='goodsImg' scroll-x>
+      <view class='imgItem' 
+      wx:for='{{imageArray}}' wx:key='index'>
+        <image class='itemImg' src='{{globalData.ossUrl + item}}'></image>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='leftright delivery'>
+    <view>配送信息</view>
+    <view>{{orderModel.deliverType.length > 0 ? orderModel.deliverType : '满屋配送'}}<text> ></text></view>
+  </view>
+  <view class='leftright referrer'>
+    <view>推荐人： {{orderModel.stageName + '（' + orderModel.jobNumber + '）'}}</view>
+    <view>></view>
+  </view>
+  <view class='leftright remark'>
+    <view class='remarkcontent'>备注： 
+    <input value='{{orderModel.remark}}' placeholder='给商家留言（选填）' disabled></input></view>
+    <view>></view>
+  </view>
+  <view class='alldiscount'>
+    <view class='leftright discount' bindtap='selectDiscount'>
+      <view>优惠活动</view>
+      <view>{{discountInfo[0]}}<text> ></text></view>
+    </view>
+    <view class='leftright voucher'>
+      <view>代金券</view>
+      <view>{{orderModel.userRedEnvelopesBOSNum == 0 ? '无可用' : "orderModel.userRedEnvelopesBOSNum + '个代金券可用'"}}<text> ></text></view>
+    </view>
+    <view class='leftright redpacket'>
+      <view>红包</view>
+      <view>{{orderModel.userRedEnvelopesBOSNum == 0 ? '无可用' : "orderModel.userRedEnvelopesBOSNum + '个红包可用'"}}<text> ></text></view>
+    </view>
+  </view>
+  <view class='allmoney'>
+    <view class='leftright totalmoney'>
+      <view>商品总额</view>
+      <view style='color:#ff7919'>¥ {{totalMoney}}</view>
+    </view>
+    <view class='leftright discountmoney' wx:show='{{orderModel.discountDTOS || orderModel.userPrivilegeCardBO}}'>
+      <view>{{orderModel.discountDTOS ? '全场'+orderModel.discountDTOS.discountValue*10+'折' : '特权卡'+orderModel.userPrivilegeCardBO.lowsetDiscount/100.0+'折'}}</view>
+      <view style='color:#ff7919'>-¥ {{totalMoney - shouldPayMoney}}</view>
+    </view>
+    <view class='leftright voucher'>
+      <view>代金券</view>
+      <view style='color:#ff7919'>-¥ 0.00</view>
+    </view>
+    <view class='leftright redpacket'>
+      <view>红包</view>
+      <view style='color:#ff7919'>-¥ 0.00</view>
+    </view>
+    <view class='leftright extramoney'>
+      <view>运费/安装费</view>
+      <view style='color:#ff7919'>+¥ 0.00</view>
+    </view>
+  </view>
+</view>
+<view class='payview'>
+  <view class='paycontent'>
+    <view>本次支付：<text style='color:#ff7919'>¥ {{shouldPayMoney}}</text></view>
+    <view>提交订单则默认已同意<text style='color:#ff7919'>《满屋研选购物协议》</text></view>
+  </view>
+  <view class='paybtn' bindtap='sumbitOrder'>提交订单</view>
+</view>

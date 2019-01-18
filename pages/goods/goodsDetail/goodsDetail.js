@@ -117,9 +117,8 @@ Page({
     else {
       animation.translateY(500 * this.data.globalData.screenWidth / 375).opacity(0).step()
     }
-    var that = this
     this.setData({
-      hideShadowView: !that.data.hideShadowView,
+      hideShadowView: !this.data.hideShadowView,
       animationDataSpec: animation.export()
     })
   },
@@ -193,11 +192,38 @@ Page({
     })
   },
   clickBuy() {
-    this.clickSpecView()
+    if (this.data.animationDataSpec) {
+      if (this.data.detailType == 0) {
+        this.goodsBuyNowRequest(this.data.goodsDetail.defaultItemSku.id, this.data.goodsDetail.defaultItemSku.buyNum)
+      }
+      else if (this.data.detailType == 1) {
+        
+      }
+      else if (this.data.detailType == 2) {
+        
+      }
+    }
+    else {
+      this.clickSpecView()
+    }
   },
   clickShoppingCart() {
-    this.clickSpecView()
+    if (this.data.animationDataSpec) {
+      if (this.data.detailType == 0) {
+        this.goodsAddShoppingCartRequest(this.data.goodsDetail.defaultItemSku.id, this.data.goodsDetail.defaultItemSku.buyNum)
+      }
+      else if (this.data.detailType == 1) {
+        
+      }
+      else if (this.data.detailType == 2) {
+        
+      }
+    }
+    else {
+      this.clickSpecView()
+    }
   },
+  // 点击蒙层
   clickShadow() {
     var animation = wx.createAnimation({
       duration: 500,
@@ -298,6 +324,27 @@ Page({
     })
     this.setData({
       imagesList: list
+    })
+  },
+  // 立即购买
+  goodsBuyNowRequest(skuid, number) {
+    ajax('POST', 'api-cart/confirm/item/buy-now', { activityType: 2, itemSkuId: skuid, itemNum: number, type: '01'}, '', (res) => {
+      wx.navigateTo({
+        url: '../../order/confirmOrder/confirmOrder?shareId=' + res.data.shareId,
+      })
+    }, () => {
+
+    })
+  },
+  // 加入购物车
+  goodsAddShoppingCartRequest(skuid, number) {
+    ajax('POST', 'api-cart/item-cart', { itemSkuId: skuid, itemNum: number }, '', (res) => {
+      wx.showToast({
+        title: '加入购物车成功',
+      })
+      this.clickShadow()
+    }, () => {
+
     })
   }
 })

@@ -1,0 +1,10 @@
+<view class='schemecart'>
+  <view class='schemetitle' bindtap='collapseSchemeCart'>
+    <view class='imageview' catchtap='switchSchemeCartSelected'>
+      <image src="{{schemecart.schemeCartSelected ? '../../../images/circle_selected.png' : '../../../images/circle_unselected.png'}}"></image>
+    </view>
+    <text>满屋自营</text>
+    <text class='schemename'>{{schemecart.schemeName}}</text>
+  </view>
+  <itemcart wx:for='{{schemecart.children}}' wx:key='index' itemcart='{{item}}'></itemcart>
+</view>

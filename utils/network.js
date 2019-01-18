@@ -76,14 +76,15 @@ function seperateURL(url, params) {
   if (url.indexOf('?') == -1) {
     return url
   }
-  var paramStr = url.split('?').lastObject
-  for (var str in paramStr.split('&')) {
+  var paramStr = url.split('?')[1]
+  let paramArray = paramStr.split('&')
+  paramArray.map((str) => {
     var array = str.split('=')
     if (array.length == 2) {
-      params[array.firstObject] = array.lastObject
+      params[array[0]] = array[1]
     }
-  }
-  return url.split('?').firstObject
+  })
+  return url.split('?')[0]
 }
 
 function sortParams(time, random, params) {

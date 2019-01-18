@@ -7,7 +7,12 @@
     "pages/search/search",
     "pages/login/login",
     "pages/mine/mine",
-    "pages/mine/userInfo/userInfo"
+    "pages/mine/userInfo/userInfo",
+    "pages/order/confirmOrder/confirmOrder",
+    "pages/order/confirmOrder/childView/selectDiscount",
+    "pages/cart/cart",
+    "pages/cart/component/cartgoods",
+    "pages/cart/component/itemCart"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,6 +33,12 @@
         "text": "商品",
         "iconPath": "images/goodsListUnselected.png",
         "selectedIconPath": "images/goodsListSelected.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/cartUnselected.png",
+        "selectedIconPath": "images/cartSelected.png"
       },
       {
         "pagePath": "pages/mine/mine",

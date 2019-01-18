@@ -1,0 +1,25 @@
+/* pages/cart/component/schemeTitle.wxss */
+.schemecart .schemetitle {
+  line-height: 40px;
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  border-bottom: 5px solid #f5f5f5;
+}
+.schemecart .schemename {
+  display: inline-block;
+  background: #ff7919;
+  line-height: 20px;
+  margin: 10px;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+.imageview {
+  width: 40px;
+  height: 40px;
+}
+.imageview image {
+  width: 14px;
+  height: 14px;
+  margin: 13px;
+}

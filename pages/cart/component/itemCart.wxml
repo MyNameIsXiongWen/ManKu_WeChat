@@ -1,0 +1,11 @@
+<view class='itemcart'>
+  <view class='roomtitle' bindtap='collapseItemCart'>
+    <view class='imageview' catchtap='switchItemCartSelected'>
+      <image src="{{itemcart.itemCartSelected ? '../../../images/circle_selected.png' : '../../../images/circle_unselected.png'}}"></image>
+    </view>
+    <text>{{itemcart.roomName}}</text>
+  </view>
+  <view wx:if='{{itemcart.itemCartShow}}'>
+    <cartgoods wx:for='{{itemcart.itemCarts}}' wx:key='item.id' goods='{{item}}'></cartgoods>
+  </view>
+</view>

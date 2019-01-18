@@ -108,17 +108,17 @@ Page({
   requestSlideShow() {
     var that = this
     ajax('GET', 'api-base/slideshow', { 'categoryCode': '04' }, 'loading', function (res) {
-      wx.showToast({
-        title: '加载成功'
-      })
+      // wx.showToast({
+      //   title: '加载成功'
+      // })
       that.setData({
         swiperlist: res.data
       })
     }, function (res) {
-      wx.showToast({
-        title: '加载失败',
-        icon: 'none'
-      })
+      // wx.showToast({
+      //   title: '加载失败',
+      //   icon: 'none'
+      // })
     })
   },
   //请求活动弹窗
@@ -138,20 +138,20 @@ Page({
   requestGoodsList() {
     var that = this
     ajax('GET', 'api-search/item', { 'pageNum': this.data.pageNum, 'pageSize': '10' }, 'loading', function (res) {
-      if (that.data.goodsList.length == 0) {
-        wx.showToast({
-          title: '加载成功'
-        })
-      }
+      // if (that.data.goodsList.length == 0) {
+      //   wx.showToast({
+      //     title: '加载成功'
+      //   })
+      // }
       that.setData({
         goodsList: that.data.pageNum == 1 ? res.data.data : that.data.goodsList.concat(res.data.data)
       })
       wx.stopPullDownRefresh()
     }, function (res) {
-      wx.showToast({
-        title: '加载失败',
-        icon: 'none'
-      })
+      // wx.showToast({
+      //   title: '加载失败',
+      //   icon: 'none'
+      // })
     })
   },
   // 请求抢购列表

@@ -34,13 +34,25 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
 					"name": "商品详情",
 					"pathName": "pages/goods/goodsDetail/goodsDetail",
-					"query": "goodsId=60&detailType=1"
+					"query": "goodsId=82&detailType=0"
+				},
+				{
+					"id": 1,
+					"name": "确认订单",
+					"pathName": "pages/order/confirmOrder/confirmOrder",
+					"query": "shareId=BUYNOW2019011723220"
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"query": ""
 				}
 			]
 		}
