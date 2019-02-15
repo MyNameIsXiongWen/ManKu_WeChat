@@ -8,7 +8,7 @@ Component({
     goods: {
       type: Object,
       value: {}
-    }
+    }    
   },
 
   /**
@@ -25,7 +25,7 @@ Component({
     //点击商品
     clickGoods() {
       wx.navigateTo({
-        url: '../goods/goodsDetail/goodsDetail?goodsId=' + this.properties.goods.id + '&detailType=0',
+        url: '../goods/goodsDetail/goodsDetail?goodsId=' + this.properties.goods.itemSpuId + '&detailType=0',
       })
     },
     // 切换商品选中与否
@@ -34,13 +34,15 @@ Component({
       this.setData({
         goods: this.properties.goods
       })
+      console.log(this.properties.goods.selected)
+      this.triggerEvent('goodsSelectedEvent', this.properties.goods.selected)
     },
     minusItemNum(evt) {
       if (this.properties.goods.itemNum > 1) {
         this.properties.goods.itemNum--
       }
       this.setData({
-        goods: this.properties.goods
+        goods: this.properties.goods,
       })
     },
     plusItemNum(evt) {

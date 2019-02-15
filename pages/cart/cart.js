@@ -8,7 +8,9 @@ Page({
     currentIndex: 0,
     allShoppingCart: {},
     shoppingCart: {},
-    firstItemCarts: {}
+    firstItemCarts: {},
+    editing: false,
+    allSelected: true
   },
   onLoad: function (options) {
     this.getCartRequest()
@@ -17,23 +19,27 @@ Page({
   onShow: function () {
 
   },
+  // 点击顶部导航栏
   clickNav (evt) {
     var index = evt.currentTarget.dataset.index
     var obj = {}
     if (index == 0) {
-      obj = this.allShoppingCart.finishedItemCart
+      obj = this.data.allShoppingCart.finishedItemCart
     }
     else if (index == 1) {
-      obj = this.allShoppingCart.customItemCart
+      obj = this.data.allShoppingCart.customItemCart
     }
     else if (index == 2) {
-      obj = this.allShoppingCart.suiteItemCart
+      obj = this.data.allShoppingCart.suiteItemCart
     }
+    this.data.firstItemCarts.itemCarts = obj.itemCarts
     this.setData({
       currentIndex: index,
-      shoppingCart: obj
+      shoppingCart: obj,
+      firstItemCarts: this.data.firstItemCarts
     })
   },
+  // 获取购物车数据
   getCartRequest () {
     ajax('GET', 'api-cart/cart', {}, '', res => {
       console.log(res.data)
@@ -43,16 +49,43 @@ Page({
         scheme.children.map(room => {
           room['itemCartShow'] = true
           room['itemCartSelected'] = true
+          room.itemCarts.map(goods => {
+            goods['selected'] = true
+          })
         })
+      })
+      res.data.finishedItemCart.itemCarts.map(goods => {
+        goods['selected'] = true
       })
       this.setData({
         allShoppingCart: res.data,
         shoppingCart: res.data.finishedItemCart,
         firstItemCarts: { roomName: '满屋自营', itemCarts: res.data.finishedItemCart.itemCarts, itemCartSelected: true, itemCartShow: true}
       })
-      console.log(this.data.firstItemCarts)
     }, () => {
 
+    })
+  },
+  // 底部全选按钮
+  switchAllSelected() {
+    this.data.allSelected = !this.data.allSelected
+    this.data.shoppingCart.schemeCarts.map(scheme => {
+      scheme.schemeCartSelected = this.data.allSelected
+      scheme.children.map(room => {
+        room.itemCartSelected = this.data.allSelected
+        room.itemCarts.map(goods => {
+          goods.selected = this.data.allSelected
+        })
+      })
+    })
+    this.data.firstItemCarts.itemCarts.map(goods => {
+      goods.selected = this.data.allSelected
+    })
+    this.data.firstItemCarts.itemCartSelected = this.data.allSelected
+    this.setData({
+      allSelected: this.data.allSelected,
+      shoppingCart: this.data.shoppingCart,
+      firstItemCarts: this.data.firstItemCarts
     })
   }
 })

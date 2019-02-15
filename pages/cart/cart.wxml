@@ -9,5 +9,18 @@
   </schemecart>
 </view>
 <view class='accountview'>
-  <view class='accountbtn'>结算</view>
+  <view class='allSelectView'>
+    <view class='imageview' catchtap='switchAllSelected'>
+      <image src="{{allSelected ? '../../images/circle_selected.png' : '../../images/circle_unselected.png'}}"></image>
+    </view>
+    <text>全选</text>
+  </view>
+  <view wx:if='{{editing}}' class='editView'>
+    <view class='editBtn'>清空失效</view>
+    <view class='editBtn'>移入收藏</view>
+    <view class='editBtn'>删除</view>
+  </view>
+  <view wx:else class='moneyView'>
+    <view class='accountbtn'>结算</view>
+  </view>
 </view>

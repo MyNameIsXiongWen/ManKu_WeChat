@@ -6,6 +6,6 @@
     <text>{{itemcart.roomName}}</text>
   </view>
   <view wx:if='{{itemcart.itemCartShow}}'>
-    <cartgoods wx:for='{{itemcart.itemCarts}}' wx:key='item.id' goods='{{item}}'></cartgoods>
+    <cartgoods wx:for='{{itemcart.itemCarts}}' wx:key='item.id' goods='{{item}}' bind:goodsSelectedEvent='goodsEvent'></cartgoods>
   </view>
 </view>
